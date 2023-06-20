@@ -20,7 +20,8 @@ class Listing_Scraper:
         self.options = Options()
         self.options.headless = True
         prefs = {"download.default_directory": os.getcwd()}
-        #self.options.add_experimental_option('detach', True)
+        self.options.add_argument('--disable-gpu')
+        self.options.add_argument('--headless')
         self.options.add_experimental_option("prefs", prefs)
 
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
